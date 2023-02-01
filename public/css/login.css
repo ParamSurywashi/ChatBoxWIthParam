@@ -1,0 +1,83 @@
+html {
+	height: 100%;
+}
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Arial, sans-serif;
+	background: RGB(181, 200, 214);
+}
+.box-login {
+	width: 30em;
+	height: 35em;
+	margin: auto;
+	margin-top: 3em;
+	border: solid RGB(139, 155, 167);
+	border-radius: 0.5em;
+	background-image: linear-gradient(RGB(143, 168, 153), RGB(168, 143, 158));
+}
+.box-shadow {
+	-moz-box-shadow: 4px 4px 4px 4px #808080;
+	-webkit-box-shadow: 4px 4px 4px 4px #808080;
+	box-shadow: 4px 4px 4px 4px #808080;
+}
+.box-login h1 {
+	text-align: center;
+	font-size: 3em;
+	font-family: "Bungee Shade", sans-serif;
+}
+.login-form {
+	height: 50%;
+	width: 50%;
+	margin: auto;
+}
+.login-form div {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: none;
+	align-content: space-between;
+}
+.box-user {
+	height: 120px;
+	justify-content: space-around;
+}
+.box-user input {
+	background: transparent;
+	font-size: 1.3em;
+	border: none;
+	border-bottom: solid;
+	border-radius: 2px;
+	color: RGB(76, 78, 78);
+}
+.box-user input::placeholder {
+	/* Chrome, Firefox, Opera, Safari 10.1+ */
+	color: white;
+	opacity: 1; /* Firefox */
+	padding-left: 0.1em;
+}
+.box-user input:-ms-input-placeholder {
+	/* Internet Explorer 10-11 */
+	color: RGB(162, 180, 192);
+	padding-left: 0.1em;
+}
+.box-user input::-ms-input-placeholder {
+	/* Microsoft Edge */
+	color: RGB(162, 180, 192);
+	padding-left: 0.1em;
+}
+.box-btn {
+	height: 80px;
+	justify-content: end;
+	align-items: center;
+}
+button {
+	width: 100px;
+	height: 40px;
+	border-radius: 5px;
+	border-color: RGB(181, 200, 214);
+	color: white;
+	background: RGBA(139, 155, 167);
+}
+button:hover {
+	box-shadow: 2px 2px 2px 2px #808080;
+}
