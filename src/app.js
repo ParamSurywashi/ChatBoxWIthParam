@@ -6,7 +6,8 @@ const {initializingPassport, isAuthenticated} = require("./database/passportConf
 
 var app = express();
 var PORT = 1200;
- app.use(express.json())
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
 const {connectMongoose, User} = require("./database/mongoConnect")
   connectMongoose();
 const ejs = require("ejs");
@@ -40,8 +41,8 @@ app.get('/index', (req, res) => {
   app.get('*', (req, res) => {
     res.render("Error");
   })
-  app.get('/profile',isAuthenticated,(req, res) => {
-    res.send(req.user);
+  app.get('/profile',(req, res) => {
+    req.send(req.user);
   })
   app.get('/logout', (req, res) => {
     req.logOut(()=>{
@@ -53,14 +54,17 @@ app.get('/index', (req, res) => {
       res.render("login");
     })
   app.post('/register', async (req, res) => {
+
       const user = await User.findOne({username:req.body.username})
   
       if(user) return res.status(400).send("User Already exiest");
       const newUser =await User.create(req.body)
       res.status(201).send(newUser)
     })
-  app.post('/login',passport.authenticate("local",{successRedirect:"/",failureRedirect:"/register"}))
-
+   app.post('/login',passport.authenticate("local",{successRedirect:"/",failureRedirect:"/register"}))
+  // app.post('/login',async (req,res)=>{
+  //    res.send("Hiiiii")
+  // })
 app.listen(PORT, function(err){
     if (err) console.log(err);
     console.log("Server listening on PORT", PORT);

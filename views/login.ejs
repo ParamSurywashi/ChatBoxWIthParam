@@ -11,15 +11,15 @@
 <body>
     <div class='box-login box-shadow'>
 	<h1>Login</h1>
-	<form class="login-form">
+	<form class="login-form" method="post">
 		<div class='box-user'>
-			<input type='text' name='email' placeholder='Email' required>
+			<input type="email" placeholder="Email" name="username" required>
 		</div>
 		<div class='box-user'>
-			<input type='password' name='password' placeholder='Password' required>
+			<input type="password" name="password" placeholder="Password" required>
 		</div>
 		<div class='box-btn'>
-			<button type='button' onclick='alert("Submit button clicked!")'>Login</button>
+			<button>Login</button>
 		</div>
 	</form> <br /> <br />
 	<p>Create a New User <a href="register">Register</a></p>

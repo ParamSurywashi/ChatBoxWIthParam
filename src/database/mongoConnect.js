@@ -10,9 +10,8 @@ exports.connectMongoose = ()=>{
 
 const userSchema = new mongoose.Schema({
     name : String,
-    username :{
+    username : {
         type : String,
-        required : true,
         unique: true
     },
     password : String
