@@ -11,6 +11,9 @@ router.get("/", (req, res) => {
     hello: "hi!"
   });
 });
+app.get('/login', (req, res) => {
+  res.render("login");
+})
 
 
 app.use(`/.netlify/functions/api`, router);

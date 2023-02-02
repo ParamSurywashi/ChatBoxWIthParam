@@ -1,14 +1,22 @@
 var express = require("express");
+//For De[loyment]
+const serverless = require("serverless-http");
+const router = express.Router();
+
+
+
 var passport = require("passport");
 const path = require('path')
 var expressSession = require('express-session');
-const {initializingPassport, isAuthenticated} = require("./database/passportConfig")
+const {initializingPassport, isAuthenticated} = require("../Main/database/passportConfig")
 
 var app = express();
 var PORT = 1200;
 app.use(express.json());
+
+app.use("/.netlify/functions/api", router);
 app.use(express.urlencoded({extended:true}));
-const {connectMongoose, User} = require("./database/mongoConnect")
+const {connectMongoose, User} = require("../Main/database/mongoConnect")
   connectMongoose();
 const ejs = require("ejs");
 const bodyParser = require("body-parser")
@@ -71,3 +79,6 @@ app.listen(PORT, function(err){
 }); 
 
 
+
+module.exports = app;
+module.exports.handler = serverless(app);
